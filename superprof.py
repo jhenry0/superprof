@@ -12,7 +12,7 @@ categories = []
 for x in classe:
     x = x.find_all("a")
 
-    for y in x:
-        categories.insert(1, y.contents[0])
+    for index,y in enumerate(x):
+        print(f"{index}/{len(x)}-{y.contents[0]}")
+        getProfByCategory.delay(y.contents[0])   
 
-getProfByCategory.delay(categories)
